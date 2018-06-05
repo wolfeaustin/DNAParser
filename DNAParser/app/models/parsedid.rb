@@ -1,0 +1,2 @@
+class Parsedid < ApplicationRecord
+end

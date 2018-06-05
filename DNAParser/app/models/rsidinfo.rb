@@ -1,0 +1,2 @@
+class Rsidinfo < ApplicationRecord
+end
