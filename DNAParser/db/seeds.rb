@@ -11,7 +11,7 @@ $relevantIDs = ['rs1815739','rs53576','rs53576','rs333','rs1800497','rs1805007',
 
 
 Rsidinfo.create(name: 'rs1800497', description: 'red hair')
-Rsidinfo.create(name: 'rs1815739', description: 'something else')
+Rsidinfo.create(name: 'rs1815739', description: 'muscle performance')
 ids = Rsidinfo.all.map{|r| r.name}
 
 File.open('austin_dna_sample.txt').each do |line|
