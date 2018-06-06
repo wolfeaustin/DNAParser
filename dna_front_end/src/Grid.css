@@ -1,22 +1,28 @@
 .Container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   background-color: #2196f3;
   padding: 10px;
 }
 
-.Container-Column {
+.Container-Column-Selector {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
-  font-size: 30px;
+  grid-column: 1 / 2;
+  text-align: center;
+}
+
+.Container-Column-Show {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  grid-column: 2 / 4;
   text-align: center;
 }
 
 .Container-Item {
   background-color: rgba(255, 0, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
   text-align: center;
 }

@@ -9,7 +9,8 @@ class IDContainer extends React.Component {
     this.state = {
       rsids: [],
       rsidInfo: [],
-      selectedID: {}
+      selectedID: {},
+      selectedInfo: {}
     };
   }
   componentDidMount() {
@@ -29,10 +30,12 @@ class IDContainer extends React.Component {
       );
   }
 
-  handleClick = id => {
-    console.log(id);
+  handleClick = info => {
+    console.log(info);
+    // debugger;
     this.setState({
-      selectedID: this.state.rsids.find(r => r.rsid === id)
+      selectedID: this.state.rsids.find(r => r.rsid === info.name),
+      selectedInfo: info
     });
     console.log(this.state);
   };
@@ -41,20 +44,21 @@ class IDContainer extends React.Component {
     console.log(this.state);
     return (
       <div className="Container">
-        <div className="Container-Column">
+        <div className="Container-Column-Selector">
           {this.state.rsidInfo.map(r => (
             <IDElement
               onClick={this.handleClick}
               key={r.id}
-              id={r.name}
+              info={r}
               description={r.description}
             />
           ))}
         </div>
-        <div className="Container-Column">
+        <div className="Container-Column-Show">
           <IDShow
             key={this.state.selectedID.id}
             rsid={this.state.selectedID.rsid}
+            info={this.state.selectedInfo}
             chromosome={this.state.selectedID.chromosome}
             position={this.state.selectedID.position}
             genotype={this.state.selectedID.genotype}
