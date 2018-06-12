@@ -1,11 +1,16 @@
 import React from "react";
 import "../Grid.css";
+import { MenuItem, MenuDivider } from "@blueprintjs/core";
 
 const IDElement = props => {
-  console.log(props);
   return (
-    <div className="Container-Item" onClick={() => props.onClick(props.info)}>
-      <p>{props.description}</p>
+    <div>
+      <MenuItem
+        onClick={() => props.onClick(props.info)}
+        icon="new-text-box"
+        text={props.description}
+      />
+      <MenuDivider />
     </div>
   );
 };

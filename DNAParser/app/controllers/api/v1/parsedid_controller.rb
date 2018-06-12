@@ -6,11 +6,12 @@ class Api::V1::ParsedidController < ApplicationController
   end
 
   def create
-    byebug
+    #byebug
     #figure out what exactly we are getting back
-    
-    # data = params["preview"].blob
-    data = params["preview"].download
+
+    data = params["preview"]
+    temp = File.open(data)
+    #data = params["preview"].download
     byebug
     @upload = params
 

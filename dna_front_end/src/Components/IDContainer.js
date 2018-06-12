@@ -2,6 +2,7 @@ import React from "react";
 import IDElement from "./IDElement";
 import IDShow from "./IDShow";
 import "../Grid.css";
+import { Menu } from "@blueprintjs/core";
 
 class IDContainer extends React.Component {
   constructor() {
@@ -31,29 +32,28 @@ class IDContainer extends React.Component {
   }
 
   handleClick = info => {
-    console.log(info);
-    // debugger;
     this.setState({
       selectedID: this.state.rsids.find(r => r.rsid === info.name),
       selectedInfo: info
     });
-    console.log(this.state);
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="Container">
         <div className="Container-Column-Selector">
-          {this.state.rsidInfo.map(r => (
-            <IDElement
-              onClick={this.handleClick}
-              key={r.id}
-              info={r}
-              description={r.description}
-            />
-          ))}
+          <Menu>
+            {this.state.rsidInfo.map(r => (
+              <IDElement
+                onClick={this.handleClick}
+                key={r.id}
+                info={r}
+                description={r.description}
+              />
+            ))}
+          </Menu>
         </div>
+
         <div className="Container-Column-Show">
           <IDShow
             key={this.state.selectedID.id}
