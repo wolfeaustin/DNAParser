@@ -1,25 +1,48 @@
 import React from "react";
 import Dropzone from "react-dropzone";
 import { Button } from "@blueprintjs/core";
+import { RingLoader } from "react-spinners";
 
 class ImageUpload extends React.Component {
   constructor() {
     super();
     this.state = {
-      accepted: []
+      accepted: [],
+      rsidInfo: [],
+      idsToParse: [],
+      loading: false
     };
   }
 
+  componentDidMount() {
+    fetch("http://localhost:3000/api/v1/rsidinfo")
+      .then(r => r.json())
+      .then(data =>
+        this.setState({
+          rsidInfo: data
+        })
+      );
+  }
+
   handleSubmit = () => {
-    console.log("log accepted item on submit", this.state.accepted[0]);
-    fetch("http://localhost:3000/api/v1/parsedid", {
-      method: "post",
-      body: JSON.stringify(this.state.accepted[0]),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    }).then(console.log);
+    console.log("log accepted item on submit", this.state.accepted[0].preview);
+    this.setState(this.setState({ loading: true }));
+    fetch(this.state.accepted[0].preview)
+      .then(r => r.text())
+      .then(text =>
+        fetch("http://localhost:3000/api/v1/parsedid", {
+          method: "post",
+          body: JSON.stringify(text),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        })
+      )
+      .then(response => {
+        console.log("now you can view the report");
+        this.setState(this.setState({ loading: false }));
+      });
   };
 
   render() {
@@ -27,6 +50,13 @@ class ImageUpload extends React.Component {
 
     return (
       <div>
+        <div className="ring">
+          <RingLoader
+            color={"#394B57"}
+            loading={this.state.loading}
+            size={400}
+          />
+        </div>
         <div className="dropzone-grid">
           <div className="dropzone">
             <Dropzone
@@ -60,7 +90,7 @@ class ImageUpload extends React.Component {
         </div>
         {this.state.accepted.length > 0 ? (
           <aside>
-            <h2 style={{ color: "#394B57" }}>Accepted files</h2>
+            <h2 style={{ color: "#394B57" }}>File to Upload</h2>
             <ul>
               {this.state.accepted.map(f => (
                 <li key={f.name} style={{ color: "#394B57" }}>

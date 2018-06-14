@@ -1,6 +1,7 @@
 import React from "react";
 import IDElement from "./IDElement";
 import IDShow from "./IDShow";
+import Articles from "./Articles";
 import "../Grid.css";
 import { Menu } from "@blueprintjs/core";
 
@@ -11,7 +12,8 @@ class IDContainer extends React.Component {
       rsids: [],
       rsidInfo: [],
       selectedID: {},
-      selectedInfo: {}
+      selectedInfo: {},
+      articles: []
     };
   }
   componentDidMount() {
@@ -43,14 +45,19 @@ class IDContainer extends React.Component {
       <div className="Container">
         <div className="Container-Column-Selector">
           <Menu>
-            {this.state.rsidInfo.map(r => (
-              <IDElement
-                onClick={this.handleClick}
-                key={r.id}
-                info={r}
-                description={r.description}
-              />
-            ))}
+            {this.state.rsidInfo
+              .filter(n => this.state.rsids.map(p => p.rsid).includes(n.name))
+              .map(r => (
+                <IDElement
+                  onClick={this.handleClick}
+                  key={r.id}
+                  info={r}
+                  description={r.description}
+                  genotype={
+                    this.state.rsids.find(i => i.rsid === r.name).genotype
+                  }
+                />
+              ))}
           </Menu>
         </div>
 
@@ -63,6 +70,7 @@ class IDContainer extends React.Component {
             position={this.state.selectedID.position}
             genotype={this.state.selectedID.genotype}
           />
+          <Articles selected={this.state.selectedID} />
         </div>
       </div>
     );

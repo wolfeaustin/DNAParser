@@ -7,14 +7,36 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Rsidinfo.delete_all
 Parsedid.delete_all
-$relevantIDs = ['rs1815739','rs53576','rs53576','rs333','rs1800497','rs1805007', 'rs1799971']
 
+Article.create(rsid: 'rs6152', description: 'Major determinant of androgenetic alopecia', url: 'https://www.ncbi.nlm.nih.gov/pubmed/15902657?dopt=Abstract')
+Article.create(rsid: 'rs6152', description: 'Baldness and the androgen receptor', url: 'https://www.ncbi.nlm.nih.gov/pubmed/17256155?dopt=Abstract')
+
+Rsidinfo.create(name: 'rs7216389', description: 'Childhood Asthma', details: 'rs7216389, a SNP in the ORMDL3 gene on chromosome 17q21, was associated with susceptibility to childhood asthma
+  in a study of ~1,000 British patients. The variation appears to be linked to altered levels of the ORMDL3 mRNA, which was shown in a cohort study of ~5,000 British and German patients to be correlated to childhood asthma.
+A large study of Scottish asthma patients replicated these results, finding that a single copy of the T allele conferred an odds ratio of 1.50 (CI: 1.24-1.81) and 2 copies conferred an odds ratio of 2.11 (CI: 1.71-2.61), respectively.',
+  geno1var:'TT', geno1mag:2, geno1sum:'1.5x increased risk for Childhood Asthma.',
+  geno2var:'CT', geno2mag:1.8, geno2sum:'Normal risk for Childhood Asthma.',
+  geno3var:'CC', geno3mag:2, geno3sum:'0.69x lower risk of Childhood Asthma.')
+
+
+Rsidinfo.create(name: 'rs1061170', description: 'Macular Degeneration', details: 'Age related macular degeneration (ARMD) is the leading cause of blindness for people over 50.
+This SNP has been associated primarily with age related macular degeneration, and to a lesser extent, with longevity. ',
+  geno1var:'CC', geno1mag:3.2, geno1sum:'5.9x risk for AMD; higher mortality among nonagenarians',
+  geno2var:'CT', geno2mag:2.5, geno2sum:'2.5x risk for AMD; higher mortality among nonagenarians',
+  geno3var:'TT', geno3mag:1.6, geno3sum:'lower risk for AMD, generally longer sight-life than (C) allele carriers')
+
+Rsidinfo.create(name: 'rs12608932', description: 'Lou Gehrig’s disease', details: 'Genome-wide association studies (GWAS) have repeatedly detected a significant but modest association between
+rs12608932(C) and risk for amyotrophic lateral sclerosis (ALS), with an odds ratio <1.30, but the SNP appears to convey a larger effect on survival in those who actually have ALS. Mean survival
+in rs12608932(C;C) ALS patients is 6 to 12 months shorter compared those carrying one or two (A) alleles.',
+  geno3var:'AA', geno3mag:0, geno3sum:'lowest ALS risk among rs12608932 genotypes',
+  geno2var:'AC', geno2mag:1.5, geno2sum:'Slight (1.5x) increase in ALS risk',
+  geno1var:'CC', geno1mag:2, geno1sum:'Small increase in ALS risk; better lithium response in ALS patients')
 
 Rsidinfo.create(name: 'rs7192', description: 'Peanut Allergy', details: 'A study of several thousand children and their parents, most with food allergies, concluded that two SNPs,
   rs7192 and rs9275596, are associated with increased susceptibility to developing a peanut allergy in populations of European ancestry. The odds ratio reported for rs7192(T) were 1.7 (p=10e-8).',
-  geno1var:'GG', geno1mag:0, geno1sum:'common/normal',
+  geno3var:'GG', geno3mag:0, geno3sum:'common/normal',
   geno2var:'GT', geno2mag:1.7, geno2sum:'1.7x increased risk for developing a peanut allergy',
-  geno3var:'TT', geno3mag:3, geno3sum:'3x higher risk for developing a peanut allergy')
+  geno1var:'TT', geno1mag:3, geno1sum:'3x higher risk for developing a peanut allergy')
 
 Rsidinfo.create(name: 'rs1160312', description: 'Baldness', details: 'Male pattern baldness, sometimes abbreviated MPB and referred to clinically as androgenetic alopecia, is
   thought to affect up to 80% of all males by the age of 80. It is clearly a genetic trait (i.e. it`s inherited), and depends on levels of the hormone androgen and the Androgen Receptor
@@ -53,37 +75,37 @@ Rsidinfo.create(name: 'rs9939609', description: 'Fat Gene', details: 'rs9939609 
 
 Rsidinfo.create(name: 'rs1805007', description: 'Red Hair', details: 'rs1805007, known as Arg151Cys or R151C, one of several SNPs in the MC1R gene associated with red hair color
   (redheads), and in redheaded females, linked to being more responsive to the anesthetics pentazocine, nalbuphine, and butorphanol, often used by dentists',
-  geno1var:'CC', geno1mag:0, geno1sum:'normal risk',
+  geno3var:'CC', geno3mag:0, geno3sum:'normal risk',
   geno2var:'CT', geno2mag:2.7, geno2sum:'Carrier of a red hair associated variant; higher risk of melanoma',
-  geno3var:'TT', geno3mag:3.2, geno3sum:'increased response to anesthetics; 13-20x higher likelihood of red hair; increased risk of melanoma')
+  geno1var:'TT', geno1mag:3.2, geno1sum:'increased response to anesthetics; 13-20x higher likelihood of red hair; increased risk of melanoma')
 
 Rsidinfo.create(name: 'rs1815739', description: 'Muscle Performance', details: 'This SNP, in the ACTN3 gene, encodes a premature stop codon in a muscle protein called alpha-actinin-3.
   The polymorphism alters position 577 of the alpha-actinin-3 protein. In publications the (C;C) genotype is often called RR, whereas the (T;T) genotype is often called XX.',
-  geno1var:'CC', geno1mag:'2.2', geno1sum:'Better performing muscles. Likely sprinter.',
+  geno3var:'CC', geno3mag:'2.2', geno3sum:'Better performing muscles. Likely sprinter.',
   geno2var:'CT', geno2mag:'2.1', geno2sum:'Mix of muscle types. Likely sprinter.',
-  geno3var:'TT', geno3mag:'2.2', geno3sum:'	Impaired muscle performance. Likely endurance athlete.')
+  geno1var:'TT', geno1mag:'2.2', geno1sum:'	Impaired muscle performance. Likely endurance athlete.')
 
 Rsidinfo.create(name: 'rs7903146', description: 'Type-2 Diabetes', details: 'This SNP in TCF7L2 influences the risk of Type-2 diabetes (T2D). This SNP is also known as IVS3C>T.
 rs7903146(C;T) rs7903146(T;T) strongly predicted future type-2 diabetes. Considered in context with rs7903146 rs12255372 rs10885406.
 Note: this is one of two SNPs within the TCF7L2 gene that have been reported to be associated with type-2 diabetes, the other being rs4506565.
 They have approximately equal power to estimate risk for type-2 diabetes, and the results from one correlate 92% of the time with the other.',
-geno1var:'CC', geno1mag:2, geno1sum:'Normal (lower) risk of Type 2 Diabetes and Gestational Diabetes.',
+geno3var:'CC', geno3mag:2, geno3sum:'Normal (lower) risk of Type 2 Diabetes and Gestational Diabetes.',
 geno2var:'CT', geno2mag:2.1, geno2sum:'1.4x increased risk for diabetes (and perhaps colon cancer).',
-geno3var:'TT', geno3mag:3.5, geno3sum:'2x increased risk for Type-2 diabetes')
+geno1var:'TT', geno1mag:3.5, geno1sum:'2x increased risk for Type-2 diabetes')
 
 Rsidinfo.create(name: 'rs1799971', description: 'Alcoholism', details: 'The rs1799971(G) allele in exon 1 of the mu opioid receptor OPRM1 gene causes
 the normal amino acid at residue 40, asparagine (Asn), to be replaced by aspartic acid (Asp). In the literature this SNP is also known as A118G, N40D, or Asn40Asp.
 Carriers of at least one rs1799971(G) allele appear to have stronger cravings for alcohol than carriers of two rs1799971(A) alleles, and are thus hypothesized to
 be more at higher risk for alcoholism.',
-geno1var:'AA', geno1mag:0, geno1sum:'normal',
+geno3var:'AA', geno3mag:0, geno3sum:'normal',
 geno2var:'AG', geno2mag:2.5, geno2sum:'stronger cravings for alcohol. if alcoholic, naltrexone treatment 2x more successful',
-geno3var:'GG', geno3mag:2.6, geno3sum:'more pain')
+geno1var:'GG', geno1mag:2.6, geno1sum:'more pain')
 
 Rsidinfo.create(name: 'rs12913832', description: 'Blue Eye Color', details: 'rs12913832 is a SNP near the OCA2 gene that may be functionally linked
   to blue or brown eye color, due to a lowering of promoter activity of the OCA2 gene. Blue eye color is associated with the rs12913832(G;G) genotype',
-  geno1var:'AA', geno1mag:0, geno1sum:'brown eye color, 80% of the time',
+  geno3var:'AA', geno3mag:0, geno3sum:'brown eye color, 80% of the time',
   geno2var:'AG', geno2mag:0, geno2sum:'brown eye color',
-  geno3var:'GG', geno3mag:2.5, geno3sum:'blue eye color, 99% of the time')
+  geno1var:'GG', geno1mag:2.5, geno1sum:'blue eye color, 99% of the time')
 
 Rsidinfo.create(name: 'rs4988235', description: 'Lactose Intolerance', details:'Also known as "C/T(-13910)", and located in the MCM6 gene but with
 influence on the lactase LCT gene, rs4988235 is one of two SNPs that is associated with the primary haplotype associated with hypolactasia,
@@ -115,25 +137,6 @@ geno3var:'II', geno3mag:0, geno3sum:'Not resistant to HIV infection; shows avera
 
 Rsidinfo.create(name: 'rs1801282', description: 'Metabolism', details: 'rs1801282, also known as Pro12Ala, is a common SNP in the peroxisome proliferator-activated receptor PPARG gene. The more common (C) allele (in dbSNP orientation) encodes the `Pro` amino acid at this SNP position.
 rs1801282 has been reported to be associated with metabolic syndrome, but other studies have not been able to replicate any strong or significant effect.',
-geno1var: 'CC', geno1mag: 0.1, geno1sum: 'normal fat metabolism; common in clinvar',
+geno3var: 'CC', geno3mag: 0.1, geno3sum: 'normal fat metabolism; common in clinvar',
 geno2var: 'CG', geno2mag: 3, geno2sum:'Unconfirmed higher risk of cardiovascular disease with high fat diet',
-geno3var: 'GG', geno3mag: 3, geno3sum:'Unconfirmed higher risk of cardiovascular disease with high fat diet')
-
-ids = Rsidinfo.all.map{|r| r.name}
-
-File.open('austin_dna_sample.txt').each do |line|
-  if ids.any?{|e| line.start_with?(e)}
-    data = line.split(' ')
-    # puts "#{data[0]} #{$relevantIDsHash[:data[0]]}"
-    # puts "#{data[0]}\t#{data[1]}\t#{data[2]}\t\t#{data[3]}"
-    Parsedid.create(rsid: data[0], chromosome: data[1].to_i, position: data[2].to_i, genotype: data[3])
-  end
-end
-# File.open('austin_dna_sample.txt').each do |line|
-#   if $relevantIDs.any?{|e| line.start_with?(e)}
-#     data = line.split(' ')
-#     # puts "#{data[0]} #{$relevantIDsHash[:data[0]]}"
-#     # puts "#{data[0]}\t#{data[1]}\t#{data[2]}\t\t#{data[3]}"
-#     Parsedid.create(rsid: data[0], chromosome: data[1].to_i, position: data[2].to_i, genotype: data[3])
-#   end
-# end
+geno1var: 'GG', geno1mag: 3, geno1sum:'Unconfirmed higher risk of cardiovascular disease with high fat diet')

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parsedid: one
+  rsid: MyString
+  description: MyString
+  url: MyString
+
+two:
+  parsedid: two
+  rsid: MyString
+  description: MyString
+  url: MyString

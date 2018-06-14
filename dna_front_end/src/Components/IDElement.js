@@ -1,16 +1,46 @@
 import React from "react";
 import "../Grid.css";
-import { MenuItem, MenuDivider } from "@blueprintjs/core";
 
 const IDElement = props => {
+  console.log(props);
+
   return (
     <div>
-      <MenuItem
-        onClick={() => props.onClick(props.info)}
-        icon="new-text-box"
-        text={props.description}
-      />
-      <MenuDivider />
+      <div>
+        {props.genotype
+          .split("")
+          .sort()
+          .join("") ===
+        props.info.geno1var
+          .split("")
+          .sort()
+          .join("") ? (
+          <div>
+            <div onClick={() => props.onClick(props.info)} className="Item1">
+              {props.description}
+            </div>
+          </div>
+        ) : props.genotype
+          .split("")
+          .sort()
+          .join("") ===
+        props.info.geno2var
+          .split("")
+          .sort()
+          .join("") ? (
+          <div>
+            <div onClick={() => props.onClick(props.info)} className="Item2">
+              {props.description}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div onClick={() => props.onClick(props.info)} className="Item">
+              {props.description}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
