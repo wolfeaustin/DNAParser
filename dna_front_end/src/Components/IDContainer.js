@@ -31,6 +31,13 @@ class IDContainer extends React.Component {
           rsids: data
         })
       );
+    fetch("http://localhost:3000/api/v1/article")
+      .then(r => r.json())
+      .then(data =>
+        this.setState({
+          articles: data
+        })
+      );
   }
 
   handleClick = info => {
@@ -45,19 +52,27 @@ class IDContainer extends React.Component {
       <div className="Container">
         <div className="Container-Column-Selector">
           <Menu>
-            {this.state.rsidInfo
-              .filter(n => this.state.rsids.map(p => p.rsid).includes(n.name))
-              .map(r => (
-                <IDElement
-                  onClick={this.handleClick}
-                  key={r.id}
-                  info={r}
-                  description={r.description}
-                  genotype={
-                    this.state.rsids.find(i => i.rsid === r.name).genotype
-                  }
-                />
-              ))}
+            {this.state.rsids ? (
+              <div>
+                {this.state.rsidInfo
+                  .filter(n =>
+                    this.state.rsids.map(p => p.rsid).includes(n.name)
+                  )
+                  .map(r => (
+                    <IDElement
+                      onClick={this.handleClick}
+                      key={r.id}
+                      info={r}
+                      description={r.description}
+                      genotype={
+                        this.state.rsids.find(i => i.rsid === r.name).genotype
+                      }
+                    />
+                  ))}
+              </div>
+            ) : (
+              <div>nada</div>
+            )}
           </Menu>
         </div>
 
@@ -70,7 +85,11 @@ class IDContainer extends React.Component {
             position={this.state.selectedID.position}
             genotype={this.state.selectedID.genotype}
           />
-          <Articles selected={this.state.selectedID} />
+          <Articles
+            articles={this.state.articles.filter(
+              a => a.rsid === this.state.selectedID.rsid
+            )}
+          />
         </div>
       </div>
     );
@@ -78,3 +97,26 @@ class IDContainer extends React.Component {
 }
 
 export default IDContainer;
+//
+// .sort((a, b) => {
+//   if (
+//     a.genotype ==
+//     this.state.rsids.find(r => r.rsid == a.name).geno1var
+//   ) {
+//     console.log("first case", a);
+//     return 1;
+//   }
+//   if (
+//     a.genotype ==
+//     this.state.rsids.find(r => r.rsid == a.name).geno2var
+//   ) {
+//     console.log("second case", a);
+//     return 0;
+//   } else if (
+//     a.genotype ==
+//     this.state.rsids.find(r => r.rsid == a.name).geno3var
+//   ) {
+//     console.log("third case", a);
+//     return -1;
+//   }
+// })

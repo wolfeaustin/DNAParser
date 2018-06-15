@@ -15,6 +15,11 @@
   border: 1px solid rgba(255, 255, 255, 255);
   background-color: rgba(217, 203, 2, 1);
 }
+.Item3 {
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 255);
+  background-color: rgba(57, 75, 87, 1);
+}
 
 .Container-Column-Selector {
   background-color: rgba(57, 75, 87, 1);
@@ -115,5 +120,13 @@
   grid-column: 3;
 }
 
+.Article {
+  padding: 10px;
+}
+
 .ring {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }

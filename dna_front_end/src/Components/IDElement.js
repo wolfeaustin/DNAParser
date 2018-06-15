@@ -2,8 +2,6 @@ import React from "react";
 import "../Grid.css";
 
 const IDElement = props => {
-  console.log(props);
-
   return (
     <div>
       <div>
@@ -35,7 +33,7 @@ const IDElement = props => {
           </div>
         ) : (
           <div>
-            <div onClick={() => props.onClick(props.info)} className="Item">
+            <div onClick={() => props.onClick(props.info)} className="Item3">
               {props.description}
             </div>
           </div>

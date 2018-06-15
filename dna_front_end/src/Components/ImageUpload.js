@@ -2,6 +2,7 @@ import React from "react";
 import Dropzone from "react-dropzone";
 import { Button } from "@blueprintjs/core";
 import { RingLoader } from "react-spinners";
+import { Dimmer, Loader } from "semantic-ui-react";
 
 class ImageUpload extends React.Component {
   constructor() {
@@ -50,13 +51,9 @@ class ImageUpload extends React.Component {
 
     return (
       <div>
-        <div className="ring">
-          <RingLoader
-            color={"#394B57"}
-            loading={this.state.loading}
-            size={400}
-          />
-        </div>
+        <Dimmer active={this.state.loading}>
+          <Loader size="massive">Analzing DNA...</Loader>
+        </Dimmer>
         <div className="dropzone-grid">
           <div className="dropzone">
             <Dropzone

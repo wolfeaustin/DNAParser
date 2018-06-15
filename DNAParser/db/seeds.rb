@@ -7,9 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Rsidinfo.delete_all
 Parsedid.delete_all
+Article.delete_all
 
-Article.create(rsid: 'rs6152', description: 'Major determinant of androgenetic alopecia', url: 'https://www.ncbi.nlm.nih.gov/pubmed/15902657?dopt=Abstract')
-Article.create(rsid: 'rs6152', description: 'Baldness and the androgen receptor', url: 'https://www.ncbi.nlm.nih.gov/pubmed/17256155?dopt=Abstract')
 
 Rsidinfo.create(name: 'rs7216389', description: 'Childhood Asthma', details: 'rs7216389, a SNP in the ORMDL3 gene on chromosome 17q21, was associated with susceptibility to childhood asthma
   in a study of ~1,000 British patients. The variation appears to be linked to altered levels of the ORMDL3 mRNA, which was shown in a cohort study of ~5,000 British and German patients to be correlated to childhood asthma.
@@ -18,12 +17,20 @@ A large study of Scottish asthma patients replicated these results, finding that
   geno2var:'CT', geno2mag:1.8, geno2sum:'Normal risk for Childhood Asthma.',
   geno3var:'CC', geno3mag:2, geno3sum:'0.69x lower risk of Childhood Asthma.')
 
+  Article.create(rsid: 'rs7216389', description: 'Genetic variants contribute to the risk of childhood asthma', url: 'https://www.ncbi.nlm.nih.gov/pubmed/17611496?dopt=Abstract')
+  Article.create(rsid: 'rs7216389', description: 'asthma that is poorly controlled by current medications', url: 'https://www.ncbi.nlm.nih.gov/pubmed/18395550?dopt=Abstract')
+
+
 
 Rsidinfo.create(name: 'rs1061170', description: 'Macular Degeneration', details: 'Age related macular degeneration (ARMD) is the leading cause of blindness for people over 50.
 This SNP has been associated primarily with age related macular degeneration, and to a lesser extent, with longevity. ',
   geno1var:'CC', geno1mag:3.2, geno1sum:'5.9x risk for AMD; higher mortality among nonagenarians',
   geno2var:'CT', geno2mag:2.5, geno2sum:'2.5x risk for AMD; higher mortality among nonagenarians',
   geno3var:'TT', geno3mag:1.6, geno3sum:'lower risk for AMD, generally longer sight-life than (C) allele carriers')
+
+  Article.create(rsid: 'rs1061170', description: 'Age related macular degeneration', url: 'https://www.snpedia.com/index.php/Age_related_macular_degeneration')
+  Article.create(rsid: 'rs1061170', description: 'Polymorphism and risk of age-related macular degeneration', url: 'https://www.ncbi.nlm.nih.gov/pubmed/16849663?dopt=Abstract')
+
 
 Rsidinfo.create(name: 'rs12608932', description: 'Lou Gehrig’s disease', details: 'Genome-wide association studies (GWAS) have repeatedly detected a significant but modest association between
 rs12608932(C) and risk for amyotrophic lateral sclerosis (ALS), with an odds ratio <1.30, but the SNP appears to convey a larger effect on survival in those who actually have ALS. Mean survival
@@ -32,11 +39,18 @@ in rs12608932(C;C) ALS patients is 6 to 12 months shorter compared those carryin
   geno2var:'AC', geno2mag:1.5, geno2sum:'Slight (1.5x) increase in ALS risk',
   geno1var:'CC', geno1mag:2, geno1sum:'Small increase in ALS risk; better lithium response in ALS patients')
 
+  Article.create(rsid: 'rs12608932', description: 'ALS clinical trials', url: 'https://www.ncbi.nlm.nih.gov/pubmed/28978660')
+  Article.create(rsid: 'rs12608932', description: 'Genome-wide association study', url: 'https://www.ncbi.nlm.nih.gov/pubmed/19734901?dopt=Abstract')
+
+
 Rsidinfo.create(name: 'rs7192', description: 'Peanut Allergy', details: 'A study of several thousand children and their parents, most with food allergies, concluded that two SNPs,
   rs7192 and rs9275596, are associated with increased susceptibility to developing a peanut allergy in populations of European ancestry. The odds ratio reported for rs7192(T) were 1.7 (p=10e-8).',
   geno3var:'GG', geno3mag:0, geno3sum:'common/normal',
   geno2var:'GT', geno2mag:1.7, geno2sum:'1.7x increased risk for developing a peanut allergy',
   geno1var:'TT', geno1mag:3, geno1sum:'3x higher risk for developing a peanut allergy')
+
+Article.create(rsid: 'rs7192', description: 'Genome-wide association study', url: 'https://www.ncbi.nlm.nih.gov/pubmed/25710614?dopt=Abstract')
+
 
 Rsidinfo.create(name: 'rs1160312', description: 'Baldness', details: 'Male pattern baldness, sometimes abbreviated MPB and referred to clinically as androgenetic alopecia, is
   thought to affect up to 80% of all males by the age of 80. It is clearly a genetic trait (i.e. it`s inherited), and depends on levels of the hormone androgen and the Androgen Receptor
@@ -77,7 +91,7 @@ Rsidinfo.create(name: 'rs1805007', description: 'Red Hair', details: 'rs1805007,
   (redheads), and in redheaded females, linked to being more responsive to the anesthetics pentazocine, nalbuphine, and butorphanol, often used by dentists',
   geno3var:'CC', geno3mag:0, geno3sum:'normal risk',
   geno2var:'CT', geno2mag:2.7, geno2sum:'Carrier of a red hair associated variant; higher risk of melanoma',
-  geno1var:'TT', geno1mag:3.2, geno1sum:'increased response to anesthetics; 13-20x higher likelihood of red hair; increased risk of melanoma')
+  geno1var:'TT', geno1mag:3.2, geno1sum:'13-20x higher likelihood of red hair; increased risk of melanoma')
 
 Rsidinfo.create(name: 'rs1815739', description: 'Muscle Performance', details: 'This SNP, in the ACTN3 gene, encodes a premature stop codon in a muscle protein called alpha-actinin-3.
   The polymorphism alters position 577 of the alpha-actinin-3 protein. In publications the (C;C) genotype is often called RR, whereas the (T;T) genotype is often called XX.',
@@ -131,9 +145,9 @@ geno3var:'GG', geno3mag:0.1, geno3sum:'susceptible to Norovirus infections')
 Rsidinfo.create(name: 'i3003626', description: 'HIV Resistance', details: 'II +/+: Not resistant to HIV infection; shows average time of progression to AIDS after infection.
 DI Delta32/+: Not resistant to HIV infection but may have slower progression to AIDS after infection.
 DD Delta32/Delta32: Resistant to infection by the most common strain of HIV people usually encounter, though protection is not complete.',
-geno1var:'DD', geno1mag:5, geno1sum:'Resistant to infection by the most common strain of HIV people usually encounter, though protection is not complete.',
-geno2var:'DI', geno2mag:2, geno2sum:'Not resistant to HIV infection but may have slower progression to AIDS after infection.',
-geno3var:'II', geno3mag:0, geno3sum:'Not resistant to HIV infection; shows average time of progression to AIDS after infection.')
+geno1var:'DD', geno1mag:5, geno1sum:'Resistant to infection by the most common strain of HIV',
+geno2var:'DI', geno2mag:2, geno2sum:'Not HIV resistant; slower progression to AIDS after infection.',
+geno3var:'II', geno3mag:0, geno3sum:'Not HIV resistant; average time of progression to AIDS after infection.')
 
 Rsidinfo.create(name: 'rs1801282', description: 'Metabolism', details: 'rs1801282, also known as Pro12Ala, is a common SNP in the peroxisome proliferator-activated receptor PPARG gene. The more common (C) allele (in dbSNP orientation) encodes the `Pro` amino acid at this SNP position.
 rs1801282 has been reported to be associated with metabolic syndrome, but other studies have not been able to replicate any strong or significant effect.',
