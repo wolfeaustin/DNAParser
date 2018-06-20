@@ -1,7 +1,15 @@
 import React from "react";
 import Dropzone from "react-dropzone";
 import { Button } from "@blueprintjs/core";
-import { Dimmer, Loader, Modal, Header, Icon } from "semantic-ui-react";
+import {
+  Dimmer,
+  Loader,
+  Modal,
+  Header,
+  Icon,
+  Segment,
+  Container
+} from "semantic-ui-react";
 
 class ImageUpload extends React.Component {
   constructor() {
@@ -29,11 +37,10 @@ class ImageUpload extends React.Component {
   }
 
   goToReport = () => {
-    this.props.history.push("/results");
+    this.props.history.history.push("/results");
   };
 
   handleSubmit = () => {
-    console.log("log accepted item on submit", this.state.accepted[0].preview);
     this.setState(this.setState({ loading: true }));
     fetch(this.state.accepted[0].preview)
       .then(r => r.text())
@@ -49,22 +56,56 @@ class ImageUpload extends React.Component {
       )
       .then(response => response.json())
       .then(times => {
-        console.log("now you can view the report", times);
-        this.setState(
-          this.setState({
-            loading: false,
-            matches: times.matches,
-            lines: times.lines,
-            showModal: true
-          })
-        );
+        this.setState({
+          loading: false,
+          matches: times.matches,
+          lines: times.lines,
+          showModal: true
+        });
       });
+    this.props.uploaded();
   };
 
   render() {
     return (
       <div>
-        <Modal open={this.state.showModal} basic size="small">
+        <Segment
+          inverted
+          textAlign="center"
+          style={{ minHeight: 300, padding: "1em 0em" }}
+          vertical
+        >
+          <Container>
+            <Header
+              as="h1"
+              content="Drag and Drop your file on the DropZone below"
+              inverted
+              style={{
+                fontSize: "4em",
+                fontWeight: "normal",
+                marginBottom: 0,
+                marginTop: ".5em"
+              }}
+            />
+            <Header
+              as="h2"
+              content="Click 'Upload' and we'll take care of the rest"
+              inverted
+              style={{
+                fontSize: "1.7em",
+                fontWeight: "normal",
+                marginTop: "1.5em",
+                marginBottom: ".5em"
+              }}
+            />
+          </Container>
+        </Segment>
+        <Modal
+          open={this.state.showModal}
+          onClick={this.goToReport}
+          basic
+          size="small"
+        >
           <Header icon="archive" content="Your DNA report is ready" />
           <Modal.Content scrolling>
             <p>Total Lines Analyzed: {this.state.lines}</p>
@@ -74,14 +115,18 @@ class ImageUpload extends React.Component {
             </Modal.Description>
           </Modal.Content>
           <Modal.Actions>
-            <Button color="green" inverted onClick={this.goToReport}>
-              <Icon name="checkmark" /> View Report
+            <Button
+              icon="document"
+              content="View Report"
+              onClick={this.goToReport}
+            >
+              View Report
             </Button>
           </Modal.Actions>
         </Modal>
 
         <Dimmer active={this.state.loading}>
-          <Loader size="massive">Analzing DNA...</Loader>
+          <Loader size="massive">Analyzing DNA...</Loader>
         </Dimmer>
         <div className="dropzone-grid">
           <div className="dropzone">

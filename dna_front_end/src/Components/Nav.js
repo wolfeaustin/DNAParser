@@ -33,15 +33,19 @@ const Nav = props => {
         >
           <Button className="pt-minimal" icon="upload" text="Upload File" />
         </NavLink>
-        <NavLink
-          to="/results"
-          style={{
-            fontWeight: "bold",
-            color: "white"
-          }}
-        >
-          <Button className="pt-minimal" icon="document" text="Report" />
-        </NavLink>
+        {props.uploaded ? (
+          <NavLink
+            to="/results"
+            style={{
+              fontWeight: "bold",
+              color: "white"
+            }}
+          >
+            <Button className="pt-minimal" icon="document" text="Report" />
+          </NavLink>
+        ) : (
+          <div />
+        )}
         <NavLink
           to="/addarticle"
           style={{
@@ -50,19 +54,6 @@ const Nav = props => {
           }}
         >
           <Button className="pt-minimal" icon="add" text="Contribute" />
-        </NavLink>
-      </NavbarGroup>
-      <NavbarGroup align={Alignment.RIGHT}>
-        <NavbarDivider />
-        <NavLink
-          align={Alignment.RIGHT}
-          to="/user"
-          style={{
-            fontWeight: "bold",
-            color: "white"
-          }}
-        >
-          <Button className="pt-minimal" icon="user" />
         </NavLink>
       </NavbarGroup>
     </Navbar>

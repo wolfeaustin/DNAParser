@@ -1,5 +1,13 @@
 import React from "react";
-import { Input, Dropdown, Button, Form } from "semantic-ui-react";
+import {
+  Input,
+  Dropdown,
+  Button,
+  Form,
+  Segment,
+  Container,
+  Header
+} from "semantic-ui-react";
 
 class AddArticle extends React.Component {
   constructor() {
@@ -54,9 +62,39 @@ class AddArticle extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div>
+        <Segment
+          inverted
+          textAlign="center"
+          style={{ minHeight: 300, padding: "1em 0em" }}
+          vertical
+        >
+          <Container>
+            <Header
+              as="h1"
+              content="Found an Interesting Article?"
+              inverted
+              style={{
+                fontSize: "4em",
+                fontWeight: "normal",
+                marginBottom: 0,
+                marginTop: ".5em"
+              }}
+            />
+            <Header
+              as="h2"
+              content="Use the form below to add an interesting article that you have found for one of our RSIDs"
+              inverted
+              style={{
+                fontSize: "1.7em",
+                fontWeight: "normal",
+                marginTop: "1.5em",
+                marginBottom: ".5em"
+              }}
+            />
+          </Container>
+        </Segment>
         <div
           style={{
             color: "black",

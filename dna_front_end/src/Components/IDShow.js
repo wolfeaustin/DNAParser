@@ -11,7 +11,7 @@ const IDShow = props => {
       </div>
 
       <div className="Show-Left-Container">
-        <p style={{ fontSize: "20px" }}>Details: {props.info.details}</p>
+        <p style={{ fontSize: "20px" }}>{props.info.details}</p>
       </div>
 
       <div className="Show-Right-Container">

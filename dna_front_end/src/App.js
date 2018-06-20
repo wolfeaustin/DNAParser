@@ -12,13 +12,30 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      uploaded: false
+    };
+  }
+
+  handleUploaded = e => {
+    this.setState({ uploaded: true });
+  };
+
   render() {
     return (
       <div className="App pt-dark">
-        <Nav />
+        <Nav uploaded={this.state.uploaded} />
         <Switch>
           <Route path="/results" component={IDContainer} />
-          <Route path="/upload" component={ImageUpload} />
+          <Route
+            path="/upload"
+            render={e => (
+              <ImageUpload history={e} uploaded={this.handleUploaded} />
+            )}
+          />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/addarticle" component={AddArticle} />
