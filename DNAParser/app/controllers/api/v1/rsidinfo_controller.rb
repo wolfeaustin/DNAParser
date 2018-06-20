@@ -5,4 +5,5 @@ class Api::V1::RsidinfoController < ApplicationController
     render json: @rsidinfo
   end
 
+
 end

@@ -48,6 +48,7 @@ class IDContainer extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="Container">
         <div className="Container-Column-Selector">

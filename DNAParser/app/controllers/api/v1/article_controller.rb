@@ -4,4 +4,8 @@ class Api::V1::ArticleController < ApplicationController
     render json: @articles
   end
 
+  def create
+    @article = Article.create(rsid: params['rsid'], description: params['description'], url: params['url'])
+  end
+
 end

@@ -42,6 +42,28 @@ const Nav = props => {
         >
           <Button className="pt-minimal" icon="document" text="Report" />
         </NavLink>
+        <NavLink
+          to="/addarticle"
+          style={{
+            fontWeight: "bold",
+            color: "white"
+          }}
+        >
+          <Button className="pt-minimal" icon="add" text="Contribute" />
+        </NavLink>
+      </NavbarGroup>
+      <NavbarGroup align={Alignment.RIGHT}>
+        <NavbarDivider />
+        <NavLink
+          align={Alignment.RIGHT}
+          to="/user"
+          style={{
+            fontWeight: "bold",
+            color: "white"
+          }}
+        >
+          <Button className="pt-minimal" icon="user" />
+        </NavLink>
       </NavbarGroup>
     </Navbar>
   );

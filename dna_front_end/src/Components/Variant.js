@@ -9,7 +9,7 @@ const Variant = props => {
             {props.gen
               .split("")
               .sort()
-              .join("") ==
+              .join("") ===
             props.var
               .split("")
               .sort()
